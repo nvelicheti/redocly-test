@@ -31,6 +31,7 @@ Your files should be organized into folders. The folder naming is reflected in t
 ├── ./index.mdx
 ├── ./openapi
 │   └── ./openapi/petstore.yaml
+│   └── ./openapi/MySwagger_nonCompliance-redocly.yaml
 ├── ./package.json
 ├── ./reference.page.yaml
 ├── ./sidebars.yaml
