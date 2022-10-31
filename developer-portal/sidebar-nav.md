@@ -69,6 +69,10 @@ Pay attention to the indentation spacing.
     expanded: false
     pages:
       - page: openapi/reference.page.yaml/*
+  - group: EpsStore reference
+    expanded: false
+    pages:
+      - page: openapi/MySwagger_nonCompliance-redocly.yaml/*
   - label: Upgrade
     page: developer-portal/upgrade.md
 ```
