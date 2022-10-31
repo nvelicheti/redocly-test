@@ -1,5 +1,6 @@
 type: reference-docs
 definitionId: petstore
+definitionId: epsstore
 settings:
   generateCodeSamples:
     languages:
