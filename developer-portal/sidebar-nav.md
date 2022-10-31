@@ -72,7 +72,7 @@ Pay attention to the indentation spacing.
   - group: EpsStore reference
     expanded: false
     pages:
-      - page: openapi/MySwagger_nonCompliance-redocly.yaml/*
+      - page: openapi/myoasreference.page.yml/*
   - label: Upgrade
     page: developer-portal/upgrade.md
 ```
