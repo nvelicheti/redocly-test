@@ -45,7 +45,7 @@ training:
   - group: epsstore reference
     expanded: false
     pages:
-      - page: openapi/myoasreference.page.yml/*
+      - page: openapi/myoasreference.page.yaml/*
 
   - group: Admin
     expanded: true
