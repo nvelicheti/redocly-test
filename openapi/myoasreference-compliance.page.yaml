@@ -1,1 +1,8 @@
-
+type: reference-docs
+definitionId: epsstore-comp
+settings:
+  generateCodeSamples:
+    languages:
+      - lang: curl
+      - lang: JavaScript
+      - lang: Node.js
