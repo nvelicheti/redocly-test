@@ -21,7 +21,7 @@ paths:
         - Users
       summary: Get a user
       description: Gets information about the user identified by the client_id query parameter. The response object contains all of the information that you provided in the users post call except for `ssn`. It also contains metadata about the user object.
-      operationId: GetPetByID
+      operationId: GetUserByID
       parameters:
         - name: user_id
           in: path
