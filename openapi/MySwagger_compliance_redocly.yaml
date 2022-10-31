@@ -1,0 +1,598 @@
+openapi: 3.0.0
+info:
+  title: EPS Build Doc_v1
+  description: Descriptiong of APIs used in Kickstart Build V1
+  version: '0.2'
+servers:
+  - url: unitymock.eps.com
+    description: mock server
+  - url: unitydev.eps.com
+    description: dev server
+  - url: unitytest.eps.com
+    description: test server
+tags:
+  - name: Users
+    description: Actions and information regarding users
+  - name: Products
+    description: The products API allow you to order and subscribe to a variety of EPS client offerings
+  - name: Entitlements
+    description: Entitlements associates a user to their entitlements (purchases/plans/subscriptions)
+  - name: Credit Authetication
+    description: Credit authentication questions to validate user.
+  - name: Credit Scores
+    description: Retrive credit score by user based on credit type filter
+paths:
+  /v1/users:
+    post:
+      tags:
+        - Users
+      summary: Create a user
+      description: |
+
+        When one of your clients uses your app to enroll in Experian,
+            you must tell Experian to create a user object for that 
+            client by calling the /post/user operation. If the object
+            is successfully created, the operation returns a user_id
+            that identifies the new users object. 
+
+        This id can be used on any other operation that requires you to
+        specify a specific user.
+      operationId: CreateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users'
+        required: true
+      responses:
+        '201':
+          description: New user created
+          content:
+            application/json:
+              schema:
+                type: string
+                description: Unique User ID
+                example: usr_123e4567-e89b-12d3-a456-426614174000 or client provided id
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/users/{user_id}:
+    get:
+      tags:
+        - Users
+      summary: Get a user
+      description: Gets information about the user identified by the client_id query parameter. The response object contains all of the information that you provided in the users post call except for `ssn`. It also contains metadata about the user object.
+      operationId: GetPetByID
+      parameters:
+        - name: user_id
+          in: path
+          description: ID of user to return
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Ok - user found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+        - Users
+      summary: Update a user
+      operationId: UpdateUserByID
+      parameters:
+        - name: user_id
+          in: path
+          description: Unique ID of user to return
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users'
+        required: true
+      responses:
+        '200':
+          description: Ok - user successfully updated
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+        - Users
+      summary: Delete a user
+      operationId: DeleteUserByID
+      parameters:
+        - name: user_id
+          in: path
+          description: Unique ID of user to return
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Ok - user deleted
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/products:
+    get:
+      tags:
+        - Products
+      summary: return a list of products associated to client and avalaible to users
+      operationId: ListofProducts
+      responses:
+        '200':
+          description: Success - product list found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/product-list'
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/entitlements:
+    get:
+      tags:
+        - Entitlements
+      summary: return a list of product entitlements associated to a user
+      operationId: ListofEntitlments
+      responses:
+        '200':
+          description: Success - User entitlments found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user-entitlements'
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+        - Entitlements
+      summary: create a users entitlment
+      operationId: UserEntitlement
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user-entitlements'
+      responses:
+        '201':
+          description: User product entitlements successfully created
+          content:
+            application\json:
+              schema:
+                $ref: '#/components/schemas/add-entitlements'
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/credit-authetication:
+    get:
+      tags:
+        - Credit Authetication
+      summary: Retrieve authetication questions for the the user.
+      operationId: GetAutheticationQuestions
+      responses:
+        '200':
+          description: Ok - questions succcessfully generated for the user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authetication-questions'
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+        - Credit Authetication
+      summary: Validate authentication answers
+      operationId: Submit Answers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/response-answers'
+      responses:
+        '200':
+          description: OK - User successfully authenticated for credit information
+        '204':
+          description: User is already authenticated for credit information
+        '206':
+          description: The user could not be fully authenticated. The response body contains additional questions that must be answered and then submitted by re-calling this operation (POST /v1/authentication)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authetication-questions'
+        '400':
+          description: Bad Request
+        '401':
+          description: One or more of the answers was incorrect.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/credit_scores:
+    get:
+      tags:
+        - Credit Scores
+      summary: Return number of specified score by user
+      description: 'Returns a specified type of credit score by user. Credit score examples are: Vantage, FICO, etc.  This is pass in as an enumerator such as VANTAGE3.0'
+      operationId: getCreditScoreByID
+      parameters:
+        - name: score_type
+          in: query
+          description: Type of credit score to return
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            enum:
+              - VANTAGE3.0
+        - name: limit
+          in: query
+          description: The number of scores to return
+          required: true
+          style: form
+          explode: true
+          schema:
+            maximum: 1
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Success - credit score(s) found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  securitySchemes:
+    OAuth2:
+      description: |
+       " Auth 0."
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://test-partner.us.auth0.com/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+  schemas:
+    users:
+      title: users
+      required:
+        - email
+        - firstName
+        - lastName
+      type: object
+      properties:
+        firstName:
+          maxLength: 100
+          minLength: 1
+          type: string
+          description: The users first name.
+          example: Allen
+        lastName:
+          maxLength: 100
+          minLength: 1
+          type: string
+          description: The users last name.
+          example: Rodgers
+        email:
+          type: string
+          description: the users email.
+          format: email
+          example: arodgers@foo.com
+        phone:
+          $ref: '#/components/schemas/user-phone'
+        address:
+          $ref: '#/components/schemas/user-address'
+        ssn:
+          maxLength: 9
+          minLength: 9
+          type: string
+          description: The users SSN.
+          example: '123456789'
+        dob:
+          maxLength: 8
+          minLength: 8
+          type: string
+          description: The users date of birth
+          example: mmddyyyy 03122001
+        status:
+          type: string
+          example: ACCOUNT_COMPLETE
+          enum:
+            - ACCOUNT_COMPLETE
+            - PROFILE_COMPLETE
+            - ENROLLMENT_COMPLETE
+            - CRED_AUTH_COMPLETE
+            - ACCOUNT_CANCELLED
+        terms_service:
+          type: boolean
+          example: true
+    user-address:
+      title: users-address
+      type: object
+      properties:
+        street_1:
+          type: string
+          description: Street address of user.
+          example: 1012 Sandstone St.
+        street_2:
+          type: string
+          description: Additional street information of user like Apt number, Unit, Suite, etc.
+          example: Unit 120
+        city:
+          type: string
+          description: users City
+          example: Austin
+        state:
+          maxLength: 2
+          minLength: 2
+          type: string
+          description: State that user resides in.
+          example: TX
+        zip_code:
+          maxLength: 5
+          minLength: 5
+          type: string
+          description: user 5 digit zip code
+          example: '70124'
+    user-phone:
+      title: users-phone
+      required:
+        - phone_number
+        - type
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/phone-types'
+        phone_number:
+          pattern: ^\d{9}$
+          type: string
+      example:
+        type: Default
+        phone_number: '1433870607'
+    phone-types:
+      title: phone-types
+      type: string
+      enum:
+        - DEFAULT
+        - CELL
+        - HOME
+        - WORK
+    product-list:
+      type: array
+      description: List of products avalaible to client.
+      items:
+        $ref: '#/components/schemas/productlist_inner'
+    add-entitlements:
+      required:
+        - entitlements
+        - user_id
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: ID associated with user
+          example: usr_123e4567-e89b-12d3-a456-426614174000
+        entitlements:
+          type: array
+          items:
+            type: string
+            description: The assciated id of the product
+            example: prod-123e4567-e89b-12d3-a456-426614174000
+      description: User and associated product entitlements
+    user-entitlements:
+      type: array
+      items:
+        $ref: '#/components/schemas/userentitlements_inner'
+    authetication-questions:
+      title: credit-auth-questions
+      required:
+        - questions
+      type: object
+      properties:
+        questions:
+          type: array
+          description: User authentication questions.
+          items:
+            $ref: '#/components/schemas/authentication-question'
+      description: List of questions to help verify users identity.
+    authentication-question:
+      title: credit-auth-question
+      required:
+        - authentication_question
+        - authetication_question_id
+      type: object
+      properties:
+        credit_auth_question:
+          type: string
+          example: What is your mothers maiden name?
+        credit_auth_question_id:
+          type: string
+          example: qst_123e4567-e89b-12d3-a456-426614174000
+        credit_auth_answers:
+          $ref: '#/components/schemas/authetication-answers'
+    authetication-answers:
+      title: credit-auth-possible-answers
+      type: array
+      description: list of possible answers
+      items:
+        $ref: '#/components/schemas/autheticationanswers_inner'
+    response-answers:
+      title: credit-auth-answers
+      type: array
+      description: Credit auth questions with user selected answer
+      items:
+        $ref: '#/components/schemas/responseanswers_inner'
+    score-list:
+      type: array
+      description: List of credit scores and associated dates.
+      items:
+        $ref: '#/components/schemas/scorelist_inner'
+    score-factors:
+      type: object
+      properties:
+        positive:
+          type: array
+          items:
+            $ref: '#/components/schemas/scorefactors_positive'
+        negative:
+          type: array
+          items:
+            $ref: '#/components/schemas/scorefactors_negative'
+    inline_response_200:
+      type: object
+      properties:
+        score_type:
+          type: string
+          example: VANTAGE3.0
+        score_list:
+          $ref: '#/components/schemas/score-list'
+    productlist_inner:
+      type: object
+      properties:
+        product_type:
+          type: string
+          description: The category of product to available to client (Credit)
+          default: CreditScore
+          enum:
+            - CreditScore
+        product_name:
+          type: string
+          description: Vantage 3.0 credit score and factors
+          enum:
+            - VANTAGE3.0
+        product_id:
+          type: string
+          description: The unique ID of the avaliable product
+          example: prod-123e4567-e89b-12d3-a456-426614174000
+    userentitlements_inner:
+      type: object
+      properties:
+        product_type:
+          type: string
+          description: The category of product to available to client (Credit)
+          default: CreditScore
+          enum:
+            - CreditScore
+        product_name:
+          type: string
+          description: Vantage 3.0 credit score and factors
+          enum:
+            - VANTAGE3.0
+        prouduct_id:
+          type: string
+          description: The unique ID of the product
+          example: prod-123e4567-e89b-12d3-a456-426614174000
+      description: List of product entitlements associated to a user
+    autheticationanswers_inner:
+      required:
+        - authentication_answer
+        - authentication_answer_id
+      type: object
+      properties:
+        credit_auth_answer:
+          type: string
+          example: answer 1 - Adams
+        credit_auth_id:
+          type: string
+          example: asw_123e4567-e89b-12d3-a456-426614174000
+    responseanswers_inner:
+      type: object
+      properties:
+        credit_auth_question_id:
+          type: string
+          example: qst_123e4567-e89b-12d3-a456-426614174000
+        credit_auth_answer_id:
+          type: string
+          example: asw_123e4567-e89b-12d3-a456-426614174000
+    scorelist_inner:
+      type: object
+      properties:
+        credit_score:
+          maxLength: 3
+          minLength: 3
+          type: integer
+        score_rating:
+          type: string
+          example: Very Good
+        score_date:
+          type: string
+          format: date
+          example: '2017-07-21T00:00:00.000Z'
+        score_factors:
+          $ref: '#/components/schemas/score-factors'
+    scorefactors_positive:
+      type: object
+      properties:
+        factor_code:
+          type: string
+          example: P04
+        factor_desciption:
+          type: string
+          example: The balances on your accounts are not too high compared to loan limits
+      example: null
+    scorefactors_negative:
+      properties:
+        factor_code:
+          type: string
+          example: '4'
+        factor_desciption:
+          type: string
+          example: The balances on your accounts are too high compared to loan amounts
+      example: null
+security:
+  - OAuth2: []
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true
+
