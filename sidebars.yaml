@@ -49,7 +49,7 @@ training:
   - group: epsstore-comp reference
     expanded: false
     pages:
-      - page: openapi/myoasreference-compliance.page.yaml/*  
+      - page: openapi/compliance/myoasreference-compliance.page.yaml/*  
 
   - group: Admin
     expanded: true
