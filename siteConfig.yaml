@@ -22,7 +22,7 @@ login:
     - separatorLine: true
     - label: Sign out
       logout: true
-      link: 'https://test-partner.us.auth0.com/v2/logout?client_id=5ZlVZyBFUjR5Sad9w006T2D6yrL64qEc&returnTo=https://epstest.redoc.ly'
+      link: 'https://test-partner.us.auth0.com/v2/logout?client_id=5ZlVZyBFUjR5Sad9w006T2D6yrL64qEc&returnTo=https://epsunitytest.redoc.ly'
 logo:
   image: ./images/logo.png
   altText: Redocly Training
