@@ -1,6 +1,5 @@
 type: reference-docs
 definitionId: epsstore-comp
-permission: 'read:internal-docs'
 settings:
   generateCodeSamples:
     languages:
