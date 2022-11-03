@@ -1,5 +1,5 @@
-- search: true
 training:
+  - search: true
   - page: developer-portal/index.md
   - group: Training exercises
     expanded: true
