@@ -39,19 +39,18 @@ training:
       - label: Creating React components
         page: developer-portal/custom-component.mdx
         
-- label: API References
-- group: Petstore reference
-  expanded: false
-  pages:
-    - page: openapi/reference.page.yaml/*
-- group: epsstore reference
-  expanded: false
-  pages:
-    - page: openapi/myoasreference.page.yaml/*
-- group: epsstore-comp reference
-  expanded: false
-  pages:
-    - page: openapi/compliance/myoasreference-compliance.page.yaml/*  
+ - group: Petstore reference
+   expanded: false
+   pages:
+     - page: openapi/reference.page.yaml/*
+ - group: epsstore reference
+   expanded: false
+   pages:
+     - page: openapi/myoasreference.page.yaml/*
+ - group: epsstore-comp reference
+   expanded: false
+   pages:
+     - page: openapi/compliance/myoasreference-compliance.page.yaml/*  
 
   - group: Core
     expanded: false
