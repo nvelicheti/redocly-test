@@ -1,9 +1,7 @@
-nav:
-  - search: true
 training:
   - page: developer-portal/index.md
-  - group: Training exercises
-    expanded: true
+  - group: Guide
+    expanded: false
     pages:
       - label: Setup
         page: developer-portal/setup.md
@@ -40,21 +38,24 @@ training:
         page: developer-portal/mdx.mdx
       - label: Creating React components
         page: developer-portal/custom-component.mdx
-  - group: Petstore reference
-    expanded: false
-    pages:
-      - page: openapi/reference.page.yaml/*
-  - group: epsstore reference
-    expanded: false
-    pages:
-      - page: openapi/myoasreference.page.yaml/*
-  - group: epsstore-comp reference
-    expanded: false
-    pages:
-      - page: openapi/compliance/myoasreference-compliance.page.yaml/*  
+        
+- group: API References  
+  pages:
+    - group: Petstore reference
+      expanded: false
+      pages:
+        - page: openapi/reference.page.yaml/*
+    - group: epsstore reference
+      expanded: false
+      pages:
+        - page: openapi/myoasreference.page.yaml/*
+    - group: epsstore-comp reference
+      expanded: false
+      pages:
+        - page: openapi/compliance/myoasreference-compliance.page.yaml/*  
 
-  - group: Admin
-    expanded: true
+  - group: Core
+    expanded: false
     pages:
       - group: Routine
         expanded: true
