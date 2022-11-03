@@ -40,6 +40,7 @@ training:
         page: developer-portal/custom-component.mdx
         
 - group: API References  
+- label: API References
     - group: Petstore reference
       expanded: false
       pages:
