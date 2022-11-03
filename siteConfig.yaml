@@ -44,7 +44,7 @@ stylesheets:
 #  - ./static/intercom.js
 nav:
 
-  - label: Training exercises
+  - label: Guides
     page: developer-portal/index.md
 
   - label: External docs
