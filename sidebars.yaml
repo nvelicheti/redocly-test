@@ -1,3 +1,4 @@
+- search: true
 training:
   - page: developer-portal/index.md
   - group: Training exercises
