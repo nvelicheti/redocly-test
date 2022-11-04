@@ -1,6 +1,8 @@
 type: reference-docs
 definitionId: epsstore
 settings:
+  unauthorizedTryIt:
+  label: Login to try it
   generateCodeSamples:
     languages:
       - lang: curl
