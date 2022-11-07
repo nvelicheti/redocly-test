@@ -14,7 +14,7 @@ export const theme = {
   // },
 
   colors: {
-    tonalOffset: 0.9,
+    tonalOffset: 0.2,
     primary: {
       main: ({ colors }) => colors.palette.black,
       light: ({ colors }) => lighten(colors.tonalOffset, colors.primary.main),
