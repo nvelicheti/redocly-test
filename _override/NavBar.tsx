@@ -28,7 +28,7 @@ export default function CustomNavBar(
     .map((item, index) => {
       return (
         <NavItem key={index} onClick={hideMobileMenu}>
-          <Link to={http://item.link}>{item.label}</Link>
+          <Link to={item.link}>{item.label}</Link>
         </NavItem>
       );
     });
@@ -85,7 +85,6 @@ const SearchContainer = styled.div`
   background: #fff;
   width: calc(${theme.sidebar.width} - 1px);
   height: 74px;
-
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.medium}) {
     width: 100%;
@@ -99,14 +98,12 @@ const SearchWrapper = styled.div`
   top: 90px !important;
   border-bottom: 1px solid #e4e7eb;
   padding: 6px 0;
-
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.medium}) {
     padding: 0;
     top: calc(var(--zuora-generic-header-height) + 5px) !important;
     width: calc(100% - 24px);
   }
-
   input {
     font-family: "Founders Grotesk Text Light", sans-serif;
     color: ${theme.colors.primary.main};
@@ -114,13 +111,11 @@ const SearchWrapper = styled.div`
       color: ${theme.colors.primary.main};
     }
   }
-
   .searchBox {
     @media only screen and (max-width: ${({ theme }) =>
         theme.breakpoints.medium}) {
       padding: 0;
     }
-
     > span {
       @media only screen and (max-width: ${({ theme }) =>
           theme.breakpoints.medium}) {
@@ -128,7 +123,6 @@ const SearchWrapper = styled.div`
         width: 100%;
       }
     }
-
     > ul {
       right: auto;
       left: 0;
@@ -182,7 +176,7 @@ const NavItems = styled.ul`
   }
 `;
 
-const NavItem = http://styled.li
+const NavItem = styled.li`
   padding: 10px 0;
 `;
 
