@@ -51,7 +51,7 @@ nav:
     icon: ./images/redocly-icon-white.png
     href: https://redoc.ly/docs/developer-portal/introduction/
 
-  - search: true
+  - search: false
 
 footer:
   copyrightText: Copyright © Redocly 2019-2021. All right reserved.
