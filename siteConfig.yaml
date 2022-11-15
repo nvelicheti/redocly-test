@@ -52,6 +52,7 @@ nav:
     href: https://redoc.ly/docs/developer-portal/introduction/
     
   - label: Components
+    icon: ./images/webcomponent.png
     href: https://experian-component-explorer.csid.co
 
 
