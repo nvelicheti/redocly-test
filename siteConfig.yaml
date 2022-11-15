@@ -24,7 +24,7 @@ login:
       logout: true
       link: 'https://test-partner.us.auth0.com/v2/logout?client_id={{process.env.CLIENT_ID}}&returnTo=https://epsunitytest.redoc.ly'
 logo:
-  image: ./images/logo.png
+  image: ./images/logo_1.png
   altText: Redocly Training
 toc:
   enable: true
