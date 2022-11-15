@@ -50,6 +50,9 @@ nav:
   - label: External docs
     icon: ./images/redocly-icon-white.png
     href: https://redoc.ly/docs/developer-portal/introduction/
+    
+  - label: Components
+    href: https://experian-component-explorer.csid.co
 
 
 footer:
