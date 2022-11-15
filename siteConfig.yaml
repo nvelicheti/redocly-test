@@ -44,7 +44,7 @@ stylesheets:
 #  - ./static/intercom.js
 nav:
 
-  - label: Guides
+  - label: API References
     page: developer-portal/index.md
 
   - label: External docs
