@@ -45,6 +45,7 @@ stylesheets:
 nav:
 
   - label: API References
+    icon: ./images/Api-Reference.png
     page: developer-portal/index.md
 
   - label: External docs
