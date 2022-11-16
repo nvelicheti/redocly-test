@@ -1,0 +1,70 @@
+---
+title: Getting Started with Web Components
+---
+
+import { Helmet } from "react-helmet";
+
+<Helmet>
+  <script src="https://kickstartdemo-dev.csid.us/eps/eps-core.js"></script>
+  <script src="https://kickstartdemo-dev.csid.us/eps/eps-credit-score-module.js"></script>
+</Helmet>
+
+# Getting Started with Web
+
+This page will help you get started embedding Experian's components into your site.
+
+---
+
+## Overview
+
+The Credit Score Module is a visualization allowing the user can see their latest credit score as well as
+see their credit score history at a high level. The Credit Score Module can display the
+Credit Score Wheel or the Credit Score Plotter or both in one convenient module.
+
+<credit-score-module token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiRGVLVGhIVHdwODhSZ2JJZDFEc3ptZy4tQ0gzdFRvYUhQUHBESlhrSE9oblBJRlNrZmhUV1NhVTYzR2hJWXZlWFZxTWxkdklJR2NKRGxDOWZxTWhhckxhYnRYTjdnbDUxWjl0QzJRSV91U215aGtDcFZkaHV6MTRJNVF0Y295eDRxenRXc3hld2NwMEd6RFVrTmRsYXNUN1NWVlFOdW5CME0tcFhjNXNaV3dqb2ZXRm9YRElQQm4zQXh6TWRNeFY1X08yTFNvR1p6Vjl6YzdIMFNpQ2tTV2MwRWtxbjhyTmhaNXRFVUFHZFl6ZUd6a2hEUF91dmlQYWczYjBGbzlDbXlTSkZYRjg5VU11bDhydklod1pGNlVocTRjWUlSVTZ6bjlTTXA5NjMxX213UmdUV3hPekJReDNxNjZzUTRFQ3F1TUFtTF9udW9JSHlUQmVqU2VNckNvRWhHSXhSZ0RMQXk0YW41UmJvMjBEQ3ZrRXdUSVp5VzRIdzlNdGZBdTRobGJ6RXh0S2NkcE5lYWJWMW8tTzc5UUFLeHZYV3RzRVoxclRHMWtrU0kxRmd3LjUxNVNONTBjYlRndFVGR181TV9yenppNWJXQndydDlrMG9MaUNlM2xjYVEifQ.OXrWITFEHvLKOiQEvm7rOOLoBSca1AlWHHP7VQstTPE"></credit-score-module>
+
+<iframe
+  src="https://kickstartdemo-dev.csid.us/blank.html"
+  width="650"
+  height="470"
+  title="Example Component"
+  scrolling="no"
+  frameborder="0"
+></iframe>
+
+## Web Component Integration
+
+To get started, add the following two scripts to the head tag of your site. The first script is
+the EPSCore library that contains all the logic for the modules. The second is the Credit Score Module
+specific script. You can also download the [latest version of the library](https://t23-thirteen23-com.s3.amazonaws.com/eps/eps-library.1.0.0.zip) locally.
+
+```html
+<head>
+  <script src="https://kickstartdemo-dev.csid.us/eps/eps-core.js"></script>
+  <script src="https://kickstartdemo-dev.csid.us/eps/eps-credit-score-module.js"></script>
+</head>
+```
+
+Next, add the Credit Score Module HTML tag into your site where you want it to render.
+
+```html
+<credit-score-module token="{YOUR_TOKEN_HERE}"></credit-score-module>
+```
+
+A user token is the only required property to get the default module to render.
+There are a number of other properties that can be used to customize various aspects of the module.
+A full list of editable properties are available in the [Styling Web Components](./styling.mdx) section.
+
+Once you have both scripts tags in the head of your site and the module tag bested in the body of your
+page, you should be able to render the module. Remember, you need a valid user token. If you want to
+know more about obtaining a valid user token, visit the API docs. If you do not have a valid token and
+wish to test out the module, feel free to use the following sandbox token:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiRGVLVGhIVHdwODhSZ2JJZDFEc3ptZy4tQ0gzdFRvYUhQUHBESlhrSE9oblBJRlNrZmhUV1NhVTYzR2hJWXZlWFZxTWxkdklJR2NKRGxDOWZxTWhhckxhYnRYTjdnbDUxWjl0QzJRSV91U215aGtDcFZkaHV6MTRJNVF0Y295eDRxenRXc3hld2NwMEd6RFVrTmRsYXNUN1NWVlFOdW5CME0tcFhjNXNaV3dqb2ZXRm9YRElQQm4zQXh6TWRNeFY1X08yTFNvR1p6Vjl6YzdIMFNpQ2tTV2MwRWtxbjhyTmhaNXRFVUFHZFl6ZUd6a2hEUF91dmlQYWczYjBGbzlDbXlTSkZYRjg5VU11bDhydklod1pGNlVocTRjWUlSVTZ6bjlTTXA5NjMxX213UmdUV3hPekJReDNxNjZzUTRFQ3F1TUFtTF9udW9JSHlUQmVqU2VNckNvRWhHSXhSZ0RMQXk0YW41UmJvMjBEQ3ZrRXdUSVp5VzRIdzlNdGZBdTRobGJ6RXh0S2NkcE5lYWJWMW8tTzc5UUFLeHZYV3RzRVoxclRHMWtrU0kxRmd3LjUxNVNONTBjYlRndFVGR181TV9yenppNWJXQndydDlrMG9MaUNlM2xjYVEifQ.OXrWITFEHvLKOiQEvm7rOOLoBSca1AlWHHP7VQstTPE
+```
+
+## Next Steps
+
+You should now be able to see the rendered Credit Score Module on your site. For further information about
+the other properties that can be configured for this module, please see the [Styling Web Components Credit](./styling.mdx) section.
