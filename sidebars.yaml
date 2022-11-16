@@ -38,6 +38,7 @@ training:
         page: developer-portal/mdx.mdx
       - label: Creating React components
         page: developer-portal/custom-component.mdx
+  - page: docs/web-components.mdx
   - group: Petstore reference
     expanded: false
     pages:
@@ -49,7 +50,7 @@ training:
   - group: epsstore-comp reference
     expanded: false
     pages:
-      - page: openapi/compliance/myoasreference-compliance.page.yaml/*  
+      - page: openapi/compliance/myoasreference-compliance.page.yaml/*
 
   - group: iFrame
     expanded: false
