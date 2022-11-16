@@ -47,14 +47,15 @@ nav:
   - label: API References
     icon: ./images/Api-Reference.png
     page: developer-portal/index.md
+    
+  - label: Components
+    icon: ./images/webcomponent.png
+    href: https://experian-component-explorer.csid.co
 
   - label: External docs
     icon: ./images/redocly-icon-white.png
     href: https://redoc.ly/docs/developer-portal/introduction/
     
-  - label: Components
-    icon: ./images/webcomponent.png
-    href: https://experian-component-explorer.csid.co
 
 
 footer:
