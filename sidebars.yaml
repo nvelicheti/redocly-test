@@ -51,6 +51,11 @@ training:
     pages:
       - page: openapi/compliance/myoasreference-compliance.page.yaml/*  
 
+  - group: iFrame
+    expanded: false
+    pages:
+      - page: developer-portal/customIframe.mdx
+
   - group: Core
     expanded: false
     pages:
