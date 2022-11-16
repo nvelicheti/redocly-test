@@ -118,9 +118,6 @@ export const theme = {
     backgroundColor: "#fafafa",
     width: "300px",
      fontFamily: '"Founders Grotesk", sans-serif',
-    spacing: {
-      offsetTop: '74px; padding-bottom: 74',
-    }
   },
   typography: {
     fontSize: "16px",
