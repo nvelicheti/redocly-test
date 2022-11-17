@@ -20,7 +20,7 @@ login:
     - label: Profile
       page: profile.mdx
     - label: Apps
-      page: apps.mdx
+      page: developer-portal/apps.mdx
     - separatorLine: true
     - label: Sign out
       logout: true
