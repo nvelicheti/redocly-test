@@ -21,12 +21,6 @@ login:
       page: profile.mdx
     - label: Apps
       page: developer-portal/apps.mdx
-      copyCodeSnippet:
-        enable: true
-        buttonText: Copy
-        tooltipText: Copy the code snippet
-        toasterText: Copied
-        toasterDuration: 1500
     - separatorLine: true
     - label: Sign out
       logout: true
