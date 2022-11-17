@@ -19,6 +19,8 @@ login:
   menu:
     - label: Profile
       page: profile.mdx
+    - label: Apps
+      page: apps.mdx
     - separatorLine: true
     - label: Sign out
       logout: true
