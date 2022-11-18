@@ -10,7 +10,6 @@
     "clean": "redocly-portal clean"
   },
   "dependencies": {
-    "react-native-vector-icon": "1.0.5",
     "@redocly/developer-portal": "1.1.0-beta.120"
   }
 }
