@@ -12,12 +12,12 @@ export default function App() {
         <TextInput
           style={styles.inputField}
           name="password"
-          placeholder="Enter password"
+          value="myPass"
           autoCapitalize="none"
           autoCorrect={false}
           textContentType="newPassword"
           secureTextEntry={passwordVisibility}
-          value={password}
+          editable = {false}
           enablesReturnKeyAutomatically
           onChangeText={text => setPassword(text)}
         />
