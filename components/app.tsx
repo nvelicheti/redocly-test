@@ -14,10 +14,11 @@ function App() {
       <div className="pwd-container">
         <input
           name="pwd"
-          placeholder="Enter Password"
+          
           type={isRevealPwd ? "text" : "password"}
-          value={pwd}
+          value="Shhhh"
           onChange={e => setPwd(e.target.value)}
+          readonly
         />
         <img
           title={isRevealPwd ? "Hide password" : "Show password"}
