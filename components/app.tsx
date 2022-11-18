@@ -1,53 +1,33 @@
 import React, { useState } from 'react';
-import { StyleSheet, Pressable, TextInput, View } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useTogglePasswordVisibility } from 'hooks/useTogglePasswordVisibility';
-export default function App() {
-  const { passwordVisibility, rightIcon, handlePasswordVisibility } =
-    useTogglePasswordVisibility();
-  const [password, setPassword] = useState('');
+import showPwdImg from './images/show-password.svg';
+import hidePwdImg from './images/hide-password.svg';
+
+function App() {
+
+  const [pwd, setPwd] = useState('');
+  const [isRevealPwd, setIsRevealPwd] = useState(false);
+
   return (
-    <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.inputField}
-          name="password"
-          value="myPass"
-          autoCapitalize="none"
-          autoCorrect={false}
-          textContentType="newPassword"
-          secureTextEntry={passwordVisibility}
-          editable = {false}
-          enablesReturnKeyAutomatically
-          onChangeText={text => setPassword(text)}
+    <div className="App">
+      <h3>Show and hide password in React - <a href="https://www.cluemediator.com/" target="_blank">Clue Mediator</a></h3>
+
+      <div className="pwd-container">
+        <input
+          name="pwd"
+          placeholder="Enter Password"
+          type={isRevealPwd ? "text" : "password"}
+          value={pwd}
+          onChange={e => setPwd(e.target.value)}
         />
-        <Pressable onPress={handlePasswordVisibility}>
-          <MaterialCommunityIcons name={rightIcon} size={22} color="#232323" />
-        </Pressable>
-      </View>
-    </View>
+        <img
+          title={isRevealPwd ? "Hide password" : "Show password"}
+          src={isRevealPwd ? hidePwdImg : showPwdImg}
+          onClick={() => setIsRevealPwd(prevState => !prevState)}
+        />
+      </div>
+
+    </div>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5EEDC',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 12
-  },
-  inputContainer: {
-    backgroundColor: 'white',
-    width: '100%',
-    borderRadius: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 4,
-    borderColor: '#d7d7d7'
-  },
-  inputField: {
-    padding: 14,
-    fontSize: 22,
-    width: '90%'
-  }
-});
+
+export default App;
