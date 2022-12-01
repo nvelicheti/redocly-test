@@ -52,7 +52,7 @@ nav:
     
   - label: Components
     icon: ./images/webcomponent.png
-    href: https://experian-component-explorer.csid.co
+    href: https://experian-component-explorer.csid.co/?devportal=redocly
 
   - label: External docs
     icon: ./images/redocly-icon-white.png
