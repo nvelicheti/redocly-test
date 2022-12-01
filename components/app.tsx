@@ -12,11 +12,20 @@ function App() {
       <h3>Your APP's Client Creds </h3>
 
       <div className="pwd-container">
-        <input
-          name="pwd"
+       <label for="clientid">Client ID:</label>
+        <input id="clientid"
+          name="Client-id"
+         
+          value="clientid"
+          
+          readonly
+        />
+       <label for="clientsecret">Client Secret:</label>
+         <input id="clientsecret"
+          name="Client-secret"
           
           type={isRevealPwd ? "text" : "password"}
-          value="Shhhh"
+          value="clientsecret"
           onChange={e => setPwd(e.target.value)}
           readonly
         />
