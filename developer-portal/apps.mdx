@@ -4,8 +4,20 @@ title: Apps list
 ---
 import App from '../components/app.tsx';
 
+
+import ReactDOM from 'react-dom';
+import '../components/index.css';
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
 Here's something
 #### My cool iframe
 Here's an app, of our services
 
-<App/>
+
