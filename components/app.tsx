@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <h3>Show and hide password in React - <a href="https://www.cluemediator.com/" target="_blank">Clue Mediator</a></h3>
+      <h3>Your APP's Client Creds </h3>
 
       <div className="pwd-container">
         <input
