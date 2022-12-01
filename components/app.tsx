@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <h3>Your APP's Client Creds </h3>
-<label for="clientid">Client ID:</label>
+      <label for="clientid"><p>Client ID:</p></label>
         <input id="clientid"
           name="Client-id"
          
@@ -18,9 +18,10 @@ function App() {
           
           readonly
         />
+      <label for="clientsecret">Client-Secret:</label>
       <div className="pwd-container">
        
-       <label for="clientsecret">Client-Secret:</label>
+       
          <input id="clientsecret"
           name="Client-secret"
           
