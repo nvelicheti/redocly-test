@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import showPwdImg from './images/show-password.svg';
-import hidePwdImg from './images/hide-password.svg';
+import showPwdImg from '../images/show-password.svg';
+import hidePwdImg from '../images/hide-password.svg';
 
 function App() {
 
