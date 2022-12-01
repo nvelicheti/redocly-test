@@ -18,7 +18,7 @@ function App() {
           
           readonly
         />
-      <label for="clientsecret">Client-Secret:</label>
+      <label for="clientsecret"><p>Client-Secret:</p></label>
       <div className="pwd-container">
        
        
