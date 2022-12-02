@@ -14,7 +14,7 @@ function App() {
         <input id="clientid"
           name="Client-id"
          
-          value="clientid"
+          value="5ZlVZyBFUjR5Sad9w006T2D6yrL64qEc"
           
           readonly
         />
@@ -26,7 +26,7 @@ function App() {
           name="Client-secret"
           
           type={isRevealPwd ? "text" : "password"}
-          value="clientsecret"
+          value="lF3E4x6pWPXLEYAzvuaGXNjtCh3vxGiLSpZhTWFi2K_khE6AvQA5sKPfPUlUg-hu"
           onChange={e => setPwd(e.target.value)}
           readonly
         />
