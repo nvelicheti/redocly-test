@@ -11,13 +11,11 @@ function App() {
     <div className="App">
       <h3>Your APP's Client Creds </h3>
       <label for="clientid"><p>Client ID:</p></label>
-        <input id="clientid"
-          name="Client-id"
-         
-          value="5ZlVZyBFUjR5Sad9w006T2D6yrL64qEc"
-          
-          readonly
-        />
+        <b id="clientid">
+      5ZlVZyBFUjR5Sad9w006T2D6yrL64qEc
+        </b>
+     
+
       <label for="clientsecret"><p>Client-Secret:</p></label>
       <div className="pwd-container">
        
