@@ -1,0 +1,702 @@
+openapi: 3.0.0
+info:
+  title: Customers
+  description: Customers API for APIM
+  contact:
+    email: Connected_Solutions@Experian.com
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/Experian_PS/Customers-APIM/1.0.0
+  description: SwaggerHub API Auto Mocking
+security:
+- BearerAuth: []
+paths:
+  /v1/customers:
+    get:
+      tags:
+      - Read
+      summary: Get customers
+      description: Get customers
+      operationId: get_customers
+      parameters:
+      - name: cursor
+        in: query
+        description: The cursor for the current page
+        required: false
+        schema:
+          type: string
+          format: string
+          example: ZW50XzAxR0RYN1I2MVFaTlNSTjZGOTkxNjk5NTVO
+      - name: count
+        in: query
+        description: The number of results per page
+        required: false
+        schema:
+          maximum: 2000
+          minimum: 0
+          type: number
+          format: number
+          example: 1000
+          default: 1000
+      - name: X-Correlation-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      - name: X-Session-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: Customers were succesfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Unexpected server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      security:
+      - BearerAuth: []
+    post:
+      tags:
+      - Modify
+      summary: Create a customer
+      description: Creates a single customer
+      operationId: create_customer
+      parameters:
+      - name: X-Correlation-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      - name: X-Session-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/customer_request'
+        required: true
+      responses:
+        "201":
+          description: Customer was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/customer_response'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Unexpected server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      security:
+      - BearerAuth: []
+  /v1/customers/{id}:
+    get:
+      tags:
+      - Read
+      summary: Get a customer by id
+      description: Get a single customer
+      operationId: get_customer_by_id
+      parameters:
+      - name: id
+        in: path
+        description: Customer ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/CustomerId'
+      - name: X-Correlation-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      - name: X-Session-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: Customer was succesfully returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/customer_response'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Unexpected server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      security:
+      - BearerAuth: []
+    put:
+      tags:
+      - Modify
+      summary: Update a customer
+      description: Modify a single customer
+      operationId: update_customer
+      parameters:
+      - name: id
+        in: path
+        description: Customer ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/CustomerId'
+      - name: X-Correlation-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      - name: X-Session-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/customer_request'
+        required: true
+      responses:
+        "200":
+          description: Customer was successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/customer_response'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Unexpected server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      security:
+      - BearerAuth: []
+    delete:
+      tags:
+      - Modify
+      summary: Delete a customer
+      description: Deletes a single customer
+      operationId: delete_customer
+      parameters:
+      - name: id
+        in: path
+        description: Customer ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/CustomerId'
+      - name: X-Correlation-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      - name: X-Session-ID
+        in: header
+        required: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "204":
+          description: Customer was successfully deleted
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Unexpected server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      security:
+      - BearerAuth: []
+components:
+  schemas:
+    base_customer:
+      required:
+      - email
+      - first_name
+      - id
+      - last_name
+      type: object
+      properties:
+        first_name:
+          type: string
+          format: string
+          example: John
+        last_name:
+          type: string
+          format: string
+          example: Smith
+        email:
+          type: string
+          format: string
+          example: example@test.com
+        phone:
+          $ref: '#/components/schemas/PhoneNumber'
+        address:
+          $ref: '#/components/schemas/Address'
+        additional_properties:
+          $ref: '#/components/schemas/AdditionalProperties'
+        people_id:
+          type: string
+          format: string
+          example: "18482304957"
+        preferred_language:
+          type: string
+          format: string
+          example: en
+        preferred_email:
+          type: string
+          example: PERSONAL
+          enum:
+          - PERSONAL
+          - WORK
+        preferred_sms:
+          type: string
+          example: HOME
+          enum:
+          - HOME
+          - WORK
+          - CELL
+        preferred_notification:
+          type: string
+          example: EMAIL
+          enum:
+          - EMAIL
+          - PHONE
+          - ADDRESS
+        preferred_alert:
+          type: string
+          example: ADDRESS
+          enum:
+          - EMAIL
+          - PHONE
+          - ADDRESS
+        entitlement_id:
+          type: string
+          format: string
+          example: ent_01GDJY5HNM4A68S8RFZ14DX35W
+    customer_request:
+      allOf:
+      - $ref: '#/components/schemas/base_customer'
+      - properties:
+          ssn:
+            type: string
+            format: string
+            example: 555-55-5555
+          dob:
+            type: string
+            format: date
+            example: 1987-02-25
+    customer_response:
+      allOf:
+      - properties:
+          id:
+            $ref: '#/components/schemas/CustomerId'
+          status:
+            type: string
+            format: string
+            example: CREATED
+      - $ref: '#/components/schemas/base_customer'
+    ResponsePage:
+      required:
+      - items
+      type: object
+      properties:
+        next_cursor:
+          type: string
+          description: Pagination link|cursor pointing to the next page
+          format: string
+          example: ZW50XzAxR0RYN1I2MVFaTlNSTjZGOTkxNjk5NTVO
+        previous_cursor:
+          type: string
+          description: Pagination link|cursor pointing to the previous page
+          format: string
+          example: ZW50XzAxR0RKWTVITk00QTY4UzhSRloxNERYMzVX
+        items:
+          type: array
+          description: Array of collection items.
+          items: {}
+    Error:
+      type: object
+      properties:
+        code:
+          minimum: 0
+          type: string
+          format: string
+        message:
+          type: string
+          format: string
+        dev_urL:
+          type: string
+          format: string
+    CustomerId:
+      type: string
+      format: string
+      example: cus_01GDJXZ7J6H3D4YCE56C64C9EA
+    PhoneNumber:
+      required:
+      - country_code
+      - phone_type
+      - system_number
+      type: object
+      properties:
+        phone_type:
+          type: string
+          description: Phone number type
+          format: string
+          example: home
+        country_code:
+          type: string
+          description: Country code for geographic area 1 to 3 digits.
+          format: string
+          example: "001"
+          default: "001"
+        system_number:
+          type: string
+          description: Subscriber number 10 digit
+          format: string
+          example: 123-494-3566
+    Address:
+      required:
+      - address1
+      - city
+      - state
+      - zip5
+      type: object
+      properties:
+        address1:
+          type: string
+          description: Primary address line including street number and street
+          format: string
+          example: 1234 main st
+        address2:
+          type: string
+          description: "Secondary address line for apartment, suite, unit number,\
+            \ or other address designation"
+          format: string
+          example: Apt# 104
+        city:
+          type: string
+          description: City name
+          format: string
+          example: Austin
+        state:
+          type: string
+          description: Two-character state code
+          format: string
+          example: TX
+        zip5:
+          type: string
+          description: "5-digit ZIP code. Numeric values only (0-9) only. If International,\
+            \ all zeroes."
+          format: string
+          example: "45040"
+        zip4:
+          type: string
+          description: "4-digit ZIP code. If International, all zeroes. Default to\
+            \ spaces if not available."
+          format: string
+          example: "2353"
+    AdditionalProperties:
+      type: array
+      example:
+      - key: company
+        value: Experian
+      items:
+        $ref: '#/components/schemas/AdditionalProperties_inner'
+    inline_response_200:
+      allOf:
+      - $ref: '#/components/schemas/ResponsePage'
+      - properties:
+          items:
+            type: array
+            description: Array of customers.
+            items:
+              $ref: '#/components/schemas/customer_response'
+    inline_response_400:
+      type: object
+      properties:
+        error:
+          allOf:
+          - $ref: '#/components/schemas/Error'
+          - type: object
+            example:
+              code: validation
+              message: "Missing required field: name"
+              dev_url: https://unity.experian.com/errors/validation
+    inline_response_401:
+      type: object
+      properties:
+        error:
+          allOf:
+          - $ref: '#/components/schemas/Error'
+          - type: object
+            example:
+              code: unauthorized
+              message: Missing authorization token
+              dev_url: https://unity.experian.com/errors/unauthorized
+    inline_response_403:
+      type: object
+      properties:
+        error:
+          allOf:
+          - $ref: '#/components/schemas/Error'
+          - type: object
+            example:
+              code: forbidden
+              message: You do not have access to this resource
+              dev_url: https://unity.experian.com/errors/forbidden
+    inline_response_404:
+      type: object
+      properties:
+        error:
+          allOf:
+          - $ref: '#/components/schemas/Error'
+          - type: object
+            example:
+              code: not_found
+              message: The requested resource does not exist
+              dev_url: https://unity.experian.com/errors/not_found
+    inline_response_500:
+      type: object
+      properties:
+        error:
+          allOf:
+          - $ref: '#/components/schemas/Error'
+          - type: object
+            example:
+              code: unexpected_server_error
+              message: The server encountered an unexpected error
+              dev_url: https://unity.experian.com/errors/server_error
+    AdditionalProperties_inner:
+      required:
+      - key
+      - value
+      type: object
+      properties:
+        key:
+          type: string
+          format: string
+          example: company
+        value:
+          type: string
+          format: string
+          example: Experian
+  responses:
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_400'
+    "401":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_401'
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_403'
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_404'
+    "500":
+      description: Unexpected server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_500'
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: The cursor for the current page
+      required: false
+      schema:
+        type: string
+        format: string
+        example: ZW50XzAxR0RYN1I2MVFaTlNSTjZGOTkxNjk5NTVO
+    Count:
+      name: count
+      in: query
+      description: The number of results per page
+      required: false
+      schema:
+        maximum: 2000
+        minimum: 0
+        type: number
+        format: number
+        example: 1000
+        default: 1000
+    X-Correlation-ID:
+      name: X-Correlation-ID
+      in: header
+      required: false
+      schema:
+        type: string
+        format: string
+    X-Session-ID:
+      name: X-Session-ID
+      in: header
+      required: false
+      schema:
+        type: string
+        format: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
