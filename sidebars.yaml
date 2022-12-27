@@ -51,6 +51,10 @@ training:
     expanded: false
     pages:
       - page: openapi/compliance/myoasreference-compliance.page.yaml/*
+  - group: customeroas reference
+    expanded: false
+    pages:
+      - page: openapi/customer/customer.page.yaml/*
 
   - group: iFrame
     expanded: false
