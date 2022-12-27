@@ -1,0 +1,9 @@
+type: reference-docs
+definitionId: customeroas
+permission: read-partner-docs
+settings:
+  generateCodeSamples:
+    languages:
+      - lang: curl
+      - lang: JavaScript
+      - lang: Node.js
