@@ -34,6 +34,7 @@ oasDefinitions:
   petstore: ./openapi/petstore.yaml
   epsstore: ./openapi/MySwagger_nonCompliance-redocly.yaml
   epsstore-comp: ./openapi/compliance/MySwagger_compliance_redocly.yaml
+  customeroas: ./openapi/customer/customer.yaml
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
   - https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap
