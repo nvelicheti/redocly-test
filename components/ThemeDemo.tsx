@@ -9,8 +9,7 @@ const ThemeContainer = styled.div<{ $inFrame?: boolean }>`
 
 const CreditScoreModule = ({theme}) => (<credit-score-module size={"small"} token={"abc123"} {...theme} />);
 
-export const ThemeDemo = ({
-}: PropsWithChildren<{ inProgress?: boolean; inFrame?: boolean }>) => {
+export const ThemeDemo = () => {
   const [theme, setTheme] = useState<string>('default');
 
   const handleThemeChange = (t: string) => {
