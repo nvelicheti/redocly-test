@@ -6,10 +6,9 @@ export function onInit() {
   // setParameterValue(in, name, value)
   setParameterValue('path', 'petId', 25);
   setParameterValue('header', 'x-user-email', claims?.email);
+    setParameterValue('header', 'Authorization', 'Bearer '+ 'blah blah');
+
 
   setSecurityDetails('api_key', 'sk_123123'); // 'api_key' is the security scheme id from the OAS definition
-  setSecurityDetails('my_oauth2', {
-    client_id: 'user1',
-    client_secret: 'secret123'
-  });
+  
 }
