@@ -32,8 +32,8 @@ toc:
   enable: true
 oasDefinitions:
   petstore: ./openapi/petstore.yaml
-  epsstore: ./openapi/MySwagger_nonCompliance-redocly.yaml
-  epsstore-comp: ./openapi/compliance/MySwagger_compliance_redocly.yaml
+  epsstore: ./openapi/MySwagger_nonCompliance.yaml
+  epsstore-comp: ./openapi/compliance/MySwagger_compliance.yaml
   customeroas: ./openapi/customer/customer.yaml
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
