@@ -19,6 +19,7 @@ paths:
       summary: Get customers
       description: Get customers
       operationId: get_customers
+      x-beta: true
       parameters:
       - name: cursor
         in: query
@@ -96,6 +97,7 @@ paths:
       summary: Create a customer
       description: Creates a single customer
       operationId: create_customer
+      x-beta: true
       parameters:
       - name: X-Correlation-ID
         in: header
@@ -161,6 +163,7 @@ paths:
       summary: Get a customer by id
       description: Get a single customer
       operationId: get_customer_by_id
+      x-beta: true
       parameters:
       - name: id
         in: path
@@ -227,6 +230,7 @@ paths:
       summary: Update a customer
       description: Modify a single customer
       operationId: update_customer
+      x-beta: true
       parameters:
       - name: id
         in: path
@@ -299,6 +303,7 @@ paths:
       summary: Delete a customer
       description: Deletes a single customer
       operationId: delete_customer
+      x-beta: true
       parameters:
       - name: id
         in: path
