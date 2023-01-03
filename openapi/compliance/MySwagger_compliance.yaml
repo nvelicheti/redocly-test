@@ -38,6 +38,7 @@ paths:
         This id can be used on any other operation that requires you to
         specify a specific user.
       operationId: CreateUser
+      x-beta: true
       requestBody:
         content:
           application/json:
@@ -66,6 +67,7 @@ paths:
       summary: Get a user
       description: Gets information about the user identified by the client_id query parameter. The response object contains all of the information that you provided in the users post call except for `ssn`. It also contains metadata about the user object.
       operationId: GetPetByID
+      x-beta: true
       parameters:
         - name: user_id
           in: path
@@ -93,6 +95,7 @@ paths:
         - Users
       summary: Update a user
       operationId: UpdateUserByID
+      x-beta: true
       parameters:
         - name: user_id
           in: path
@@ -122,6 +125,7 @@ paths:
         - Users
       summary: Delete a user
       operationId: DeleteUserByID
+      x-beta: true
       parameters:
         - name: user_id
           in: path
@@ -146,6 +150,7 @@ paths:
         - Products
       summary: return a list of products associated to client and avalaible to users
       operationId: ListofProducts
+      x-beta: true
       responses:
         '200':
           description: Success - product list found
@@ -165,6 +170,7 @@ paths:
         - Entitlements
       summary: return a list of product entitlements associated to a user
       operationId: ListofEntitlments
+      x-beta: true
       responses:
         '200':
           description: Success - User entitlments found
@@ -183,6 +189,7 @@ paths:
         - Entitlements
       summary: create a users entitlment
       operationId: UserEntitlement
+      x-beta: true
       requestBody:
         content:
           application/json:
@@ -207,6 +214,7 @@ paths:
         - Credit Authetication
       summary: Retrieve authetication questions for the the user.
       operationId: GetAutheticationQuestions
+      x-beta: true
       responses:
         '200':
           description: Ok - questions succcessfully generated for the user
@@ -225,6 +233,7 @@ paths:
         - Credit Authetication
       summary: Validate authentication answers
       operationId: Submit Answers
+      x-beta: true
       requestBody:
         content:
           application/json:
@@ -256,6 +265,7 @@ paths:
       summary: Return number of specified score by user
       description: 'Returns a specified type of credit score by user. Credit score examples are: Vantage, FICO, etc.  This is pass in as an enumerator such as VANTAGE3.0'
       operationId: getCreditScoreByID
+      x-beta: true
       parameters:
         - name: score_type
           in: query
