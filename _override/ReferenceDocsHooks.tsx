@@ -10,6 +10,6 @@ export function onInit() {
 
 
  
-  setSecurityDetails('Bearer Token','tesssssttt');
+  setSecurityDetails('Bearer','tesssssttt');
   
 }
