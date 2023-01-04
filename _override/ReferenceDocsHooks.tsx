@@ -5,7 +5,8 @@ export function onInit() {
 
   // setParameterValue(in, name, value)
   setParameterValue('header', 'X-Session-ID', 25);
-  setParameterValue('header', 'X-Correlation-ID', 'email@email.com');
+  setParameterValue('header', 'X-Correlation-ID', '454545');
+    setParameterValue('header', 'Authorization', 'Bearer 111111');
 
 
 
