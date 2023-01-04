@@ -10,6 +10,6 @@ export function onInit() {
 
 
   setSecurityDetails('api_key', 'sk_123123'); // 'api_key' is the security scheme id from the OAS definition
-  setSecurityDetails('Bearer Token:','tesssssttt');
+  setSecurityDetails('Bearer Token','tesssssttt');
   
 }
