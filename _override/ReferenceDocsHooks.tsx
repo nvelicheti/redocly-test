@@ -10,6 +10,6 @@ export function onInit() {
 
 
  
-  setSecurityDetails('bearer',   '111111'  );
+  setSecurityDetails('BearerAuth',   '111111'  );
   
 }
