@@ -6,10 +6,13 @@ export function onInit() {
   // setParameterValue(in, name, value)
   setParameterValue('path', 'petId', 25);
   setParameterValue('header', 'x-user-email', 'email@email.com');
-    setParameterValue('header', 'Authorization', 'Bearer '+ 'blah blah');
+    setParameterValue('header', 'Authorization', 'Bearer:'+ 'blah blah');
 
 
  
-  setSecurityDetails('Bearer','tesssssttt');
+  setSecurityDetails('BearerAuth',{
+    bearer: '111111'
+   
+  });
   
 }
